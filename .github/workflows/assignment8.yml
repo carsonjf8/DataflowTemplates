@@ -14,9 +14,11 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@230611dbd0eb52da1e1f4f7bc8bb0c3a339fc8b7
-      - name: Setup Environment
-        id: setup-env
-        uses: ./.github/actions/setup-env
+      #- name: Setup Environment
+      #  id: setup-env
+      #  uses: ./.github/actions/setup-env
+      - name: Compile
+        run: mvn test-compile -pl . -am
       - name: Run flaky without nondex shuffling
         run: mvn -pl . test -Dtest=com.google.cloud.teleport.bigtable.CassandraRowMapperFnTest#testTimestampColumn
       - name: Run flaky with nondex shuffling
