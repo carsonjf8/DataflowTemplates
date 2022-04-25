@@ -27,6 +27,8 @@ on:
       # This will make it easier to verify action changes don't break anything.
       - '.github/actions/setup-env/*'
       - '.github/workflows/java-pr.yml'
+  push:
+    branches: [ main ]
 
 permissions: read-all
 
